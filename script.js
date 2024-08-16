@@ -3,6 +3,7 @@ const runSimulation = function () {
     var tts_time = parseFloat(document.getElementById('tts_time').value);
     var min_concurrent = parseInt(document.getElementById('min_concurrent').value);
     var max_concurrent = parseInt(document.getElementById('max_concurrent').value);
+    var inc_concurrent = parseInt(document.getElementById('inc_concurrent').value);
     var concurrency_limit = parseInt(document.getElementById('concurrency_limit').value);
     var turns_per_minute = parseInt(document.getElementById('turns_per_minute').value);
     var steps = parseInt(document.getElementById('steps').value);
@@ -11,7 +12,7 @@ const runSimulation = function () {
     var avgCounts = [];
     var concurrentSteps = [];
 
-    for (var total_concurrent_calls = min_concurrent; total_concurrent_calls <= max_concurrent; total_concurrent_calls += 10) {
+    for (var total_concurrent_calls = min_concurrent; total_concurrent_calls <= max_concurrent; total_concurrent_calls += inc_concurrent) {
         var fires = [];
 
         for (var i = 0; i < steps; i++) {
